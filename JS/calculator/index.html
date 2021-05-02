@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="res/bootstrap.css" rel="stylesheet">
+    <link href="res/stylel.css" rel="stylesheet">
+    <link href="res/icon/iconCalculator.png" rel="icon">
+</head>
+
+<body class="container" onload="onLoad()">
+    <header class="container-fluid my-2 mx-2">
+        <title>Calculator JS</title>
+        <h1>
+            Calculator JS
+        </h1>
+    </header>
+
+    <main>
+        <section class="container-fluid">
+            <script>
+                var equation = "0";
+
+                function onLoad() {
+                    document.getElementById("result").innerHTML = equation;
+                    document.getElementById("result").style.fontSize = "60px";
+
+                }
+
+                function btn_clear() {
+                    document.getElementById("result").style.fontSize = "60px";
+
+                    console.log(equation);
+                    document.getElementById("result").innerHTML = "0";
+                    return 0;
+
+                }
+
+
+
+
+                function btn_equal() {
+
+                    //     element = document.getElementById("logo");
+                    //     element.addEventListener("click", function(e) {
+                    //     e.preventDefault;
+                    //     element.classList.remove("animate_result");
+                    //     element.classList.add("animate_result");
+                    // }, false);
+
+                    equation = document.getElementById("result").style.animationDuration = "2s";
+                    equation = document.getElementById("result").style.animationName = "example";
+                    equation = document.getElementById("result").innerHTML;
+
+                    equation = eval(equation);
+
+                    document.getElementById("result").innerHTML = equation;
+                    document.getElementById("result").style.fontSize = "84px";
+                }
+
+                function btn_numeric0() {
+                    document.getElementById("result").style.fontSize = "60px";
+
+                    if (document.getElementById("result").innerHTML == "0") {
+                        document.getElementById("result").innerHTML = "0";
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "0";
+                    }
+                    return 0;
+                }
+
+                function btn_numeric1() {
+                    document.getElementById("result").style.fontSize = "60px";
+
+                    if (document.getElementById("result").innerHTML == "0") {
+                        document.getElementById("result").innerHTML = "1";
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "1";
+                    }
+                    return 0;
+
+                }
+
+                function btn_numeric2() {
+                    document.getElementById("result").style.fontSize = "60px";
+
+                    if (document.getElementById("result").innerHTML == "0") {
+                        document.getElementById("result").innerHTML = "2";
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "2";
+                    }
+                    return 0;
+
+                }
+
+                function btn_numeric3() {
+                    document.getElementById("result").style.fontSize = "60px";
+
+                    if (document.getElementById("result").innerHTML == "0") {
+                        document.getElementById("result").innerHTML = "3";
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "3";
+                    }
+                    return 0;
+                }
+
+                function btn_numeric4() {
+                    document.getElementById("result").style.fontSize = "60px";
+
+                    if (document.getElementById("result").innerHTML == "0") {
+                        document.getElementById("result").innerHTML = "4";
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "4";
+                    }
+                    return 0;
+                }
+
+                function btn_numeric5() {
+                    document.getElementById("result").style.fontSize = "60px";
+
+                    if (document.getElementById("result").innerHTML == "0") {
+                        document.getElementById("result").innerHTML = "5";
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "5";
+                    }
+                    return 0;
+                }
+
+                function btn_numeric6() {
+                    document.getElementById("result").style.fontSize = "60px";
+
+                    if (document.getElementById("result").innerHTML == "0") {
+                        document.getElementById("result").innerHTML = "6";
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "6";
+                    }
+                    return 0;
+                }
+
+                function btn_numeric7() {
+                    document.getElementById("result").style.fontSize = "60px";
+
+                    if (document.getElementById("result").innerHTML == "0") {
+                        document.getElementById("result").innerHTML = "7";
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "7";
+                    }
+                    return 0;
+                }
+
+                function btn_numeric8() {
+                    if (document.getElementById("result").innerHTML == "0") {
+                        document.getElementById("result").innerHTML = "8";
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "8";
+                    }
+                    return 0;
+                }
+
+                function btn_numeric9() {
+                    document.getElementById("result").style.fontSize = "60px";
+
+                    if (document.getElementById("result").innerHTML == "0") {
+                        document.getElementById("result").innerHTML = "9";
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "9";
+                    }
+                    return 0;
+                }
+
+                function btn_op_sum() {
+                    document.getElementById("result").style.fontSize = "60px";
+
+                    if (document.getElementById("result").innerHTML == "0") {
+                        alert("Operation (+) before Numeric can not be added");
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "+";
+                    }
+
+                    return 0;
+                }
+
+                function btn_op_sub() {
+                    document.getElementById("result").style.fontSize = "60px";
+                    if (document.getElementById("result").innerHTML == "0") {
+                        alert("Operation (-) before Numeric can not be added");
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "-";
+                    }
+
+                    return 0;
+                }
+
+                function btn_op_mul() {
+                    document.getElementById("result").style.fontSize = "60px";
+
+                    if (document.getElementById("result").innerHTML == "0") {
+                        alert("Operation (x) before Numeric can not be added");
+                    }
+                    else {
+                        document.getElementById("result").innerHTML += "*";
+                    }
+                    return 0;
+                }
+
+            </script>
+
+            <!-- Main Div -->
+            <div class="w-50 container sliky-border">
+                <!-- display div -->
+                <div class="mx-2 container-fluid">
+                    <h1 id="result" class="display"> 0 </h1>
+                </div>
+                <!-- Button div -->
+                <div class="row">
+                    <!-- number div -->
+                    <center>
+                        <table class="number-btn table table-responsive table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="py-2">
+                                        <button id="1" class="col-3 my-1 btn-lg btn-primary"
+                                            onclick="btn_numeric1()">1</button>
+                                        <button id="2" class="col-3 my-1 btn-lg btn-primary"
+                                            onclick="btn_numeric2()">2</button>
+                                        <button id="3" class="col-3 my-1 btn-lg btn-primary"
+                                            onclick="btn_numeric3()">3</button>
+                                        <button id="sum" class="col-2 my-1 btn-lg btn-outline-primary"
+                                            onclick="btn_op_sum()">+</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <button id="4" class=" col-3 my-1 btn-lg btn-primary"
+                                            onclick="btn_numeric4()">4</button>
+                                        <button id="5" class="col-3 my-1 btn-lg btn-primary"
+                                            onclick="btn_numeric5()">5</button>
+                                        <button id="6" class="col-3 my-1 btn-lg btn-primary"
+                                            onclick="btn_numeric6()">6</button>
+                                        <button id="sub" class="col-2 my-1 btn-lg btn-outline-primary"
+                                            onclick="btn_op_sub()">-</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button id="7" class="col-3 my-1 btn-lg btn-primary"
+                                            onclick="btn_numeric7()">7</button>
+                                        <button id="8" class="col-3 my-1  btn-lg btn-primary"
+                                            onclick="btn_numeric8()">8</button>
+                                        <button id="9" class="col-3 my-1 btn-lg btn-primary"
+                                            onclick="btn_numeric9()">9</button>
+                                        <button id="mul" class="col-2 my-1 btn-lg btn-outline-primary"
+                                            onclick="btn_op_mul()">*</button>
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="ps-5 py-2">
+                                            <button id="CL" class="my-2 col-3 btn-lg btn-primary"
+                                                onclick="btn_clear()">CL</button>
+                                            <button id="0" class="my-2  col-3 btn-lg btn-primary"
+                                                onclick="btn_numeric0()">0</button>
+                                            <button id="EQ" class="my-2 col-3 btn-lg btn-primary" onclick="btn_equal()"
+                                                type="button">=</button>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </center>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>

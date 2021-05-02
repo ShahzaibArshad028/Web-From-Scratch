@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="stylesheet" href="Assets/css/default.css">
+	<link rel="stylesheet" href="Assets/css/bootstrap.css">
+</head>
+<!--javascript ka zarya isa day or night mode par bna ha -->
+
+<body onload="timeCheck()" id="theme">
+<header class="container-fluid">
+	<title>JS Clock Based Theme Module</title>
+	<h1>
+		JS Game : Guess My Number
+	</h1>
+	<hr>
+</header>
+<section>
+	<div class="container my-5">
+
+		<div class="container-fluid">
+			<center>
+				<div  id="inputGroupContainer">
+					<h2>Think of a Number</h2>
+					<br>			
+					<input type="text" id="low" class="form-control overflow-hidden" name="firstname" placeholder="Lower Limit : Default 0"><br>
+					<input type="text" id="high" class="form-control" name="lastname" placeholder="Lower Limit : Default 1000"><br><br>
+					<input type="button" class="form-control btn-sm btn-primary " title="Start Game" value="Start Guess" onclick="showData()">
+				</div>
+			</center>
+		</div>
+
+	</div>
+</section>
+	
+</body>
+
+<script>
+
+var timeFrame="";
+var high="1000";
+var low="0";
+var half="";
+
+	function timeCheck() {
+		var date = new Date();
+		var time = date.getUTCHours();
+		if (time + 5 >= 24) {   //pakistan is 5 hour next to Universal time 
+			time = time + 5 - 24;
+		}
+		else {
+			time = time + 5;
+		}
+		var newTheme = document.getElementById("theme");
+		var newThemeInputGroupCont = document.getElementById("inputGroupContainer");
+		var newThemeInput = document.getElementById("inputVal");
+
+		if (time >= 18 || time <= 6) {
+			newTheme.classList.add( "bg-dark","text-light","container");
+			newThemeInputGroupCont.classList.add("bg-grey-dark", "rounded-3","container-fuid","input-group-lg","w-50","my-4","px-4","py-4");
+			timeFrame="Night"
+			//add classList method ha yah ; it is used when you want to add on more then one class to any element
+			//alert(time);      //testing purpose !!
+		}
+		else {
+			newTheme.classList.add( "bg-white","text-dark","container");
+			newThemeInputGroupCont.classList.add("bg-light", "rounded-3","container-fuid","input-group-lg","w-50","my-4","px-4","py-4");
+
+			timeFrame="Morning"
+		}
+	}
+
+	function showData(){
+		//this function is uncomplete
+		
+		 if(document.getElementById("high").value !=""){
+			 high=document.getElementById("high").value;
+		}
+		if(document.getElementById("low").value !=""){
+			 low=document.getElementById("low").value;
+		}
+		//alert("High "+high+" Low "+low);
+		questionTime();
+	}
+
+	function questionTime(){
+		sessionStorage.setItem("high",high);
+		sessionStorage.setItem("low",low);
+		window.location.replace("guess.html");
+	}
+
+</script>
+
+</html>

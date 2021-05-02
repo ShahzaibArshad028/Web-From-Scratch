@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="stylesheet" href="Assets/css/default.css">
+	<link rel="stylesheet" href="Assets/css/bootstrap.css">
+</head>
+<!--javascript ka zarya isa day or night mode par bna ha -->
+
+<body onload="timeCheck()" id="theme">
+<header class="container-fluid">
+	<title>JS Clock Based Theme Module</title>
+	<h1>
+		JS Clock Based Theme Module
+	</h1>
+	<hr>
+</header>
+<section>
+	<div class="container my-4">
+		<div id="dataContainer">
+			<h2>Intro to JS Module </h2>
+			<p><br>This is an Automatic Theme changing Structure. It Changes Theme with Clock from 6 PM to 6AM Dark
+				theme and for other time normal time. This implementation is done with simple help of HTML CSS and
+				Javascript</p>
+		</div>
+
+		<div class="container-fluid">
+			<center>
+				<div  id="inputGroupContainer">
+					<h2>Input Group Container</h2>
+					<br>
+					
+					<input type="text" id="firstname" class="form-control" name="firstname" placeholder="First Name ......"><br>
+					<input type="text" id="lastname" class="form-control" name="lastname" placeholder="Last Name ......"><br><br>
+					<input type="submit" class="form-control btn-sm btn-primary w-25" onclick="showData()">
+				</div>
+			</center>
+		</div>
+
+	</div>
+</section>
+	
+</body>
+
+<script>
+
+var timeFrame="";
+
+	function timeCheck() {
+		var date = new Date();
+		alert(date);
+		var time = date.getUTCHours();
+		if (time + 5 >= 24) {   //pakistan is 5 hour next to Universal time 
+			time = time + 5 - 24;
+		}
+		else {
+			time = time + 5;
+		}
+		var newTheme = document.getElementById("theme");
+		var newThemeDataCont = document.getElementById("dataContainer");
+		var newThemeInputGroupCont = document.getElementById("inputGroupContainer");
+		var newThemeInput = document.getElementById("inputVal");
+
+		if (time >= 18 || time <= 6) {
+			newTheme.classList.add( "main-dark","container");
+			newThemeDataCont.classList.add("containerDark", "container-fuid");	
+			newThemeInputGroupCont.classList.add("containerDark", "container-fuid","input-group-lg","w-50","my-4","px-4","py-4");
+			timeFrame="Night"
+			//add classList method ha yah ; it is used when you want to add on more then one class to any element
+			//alert(time);      //testing purpose !!
+		}
+		else {
+			newTheme.classList.add( "main-white","container");
+			newThemeDataCont.classList.add("containerWhite", "container-fuid");
+			newThemeInputGroupCont.classList.add("containerWhite", "container-fuid","input-group-lg","w-50","my-4","px-4","py-2");
+			timeFrame="Morning"
+		}
+	}
+
+	function showData(){
+		//this function is uncomplete
+		
+		var firstName = document.getElementById("firstname").value;
+		var lastName = document.getElementById("lastname").value;
+		alert("Good "+timeFrame+" "+firstName+" "+lastName);
+	}
+
+</script>
+
+</html>

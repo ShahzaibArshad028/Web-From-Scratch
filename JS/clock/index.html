@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="res/style.css">
+        <link rel="stylesheet" href="res/bootstrap.css">
+    </head>
+    <body class="container">
+        <header>
+            <title>Clock JS</title>
+            <h1>Clock JS</h1>
+        </header>
+       
+       <section class="container-fluid bg-light px-5 py-5">
+           <h1 id="date_text"> What time is it ??
+           </h1>
+           <button class="btn btn-primary" onclick="showCurrentTime()">Let's Find Out</button>
+           <script>
+               function showCurrentTime(){
+                   document.getElementById("date_text").innerHTML=DataView;
+               }
+           </script>
+       </section>
+        <footer class="bg-dark">
+            <hr>
+            <center>
+                <h3>JS practice</h3>
+            </center>
+        </footer>
+    </body>
+</html>

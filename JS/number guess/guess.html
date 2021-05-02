@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="stylesheet" href="Assets/css/default.css">
+	<link rel="stylesheet" href="Assets/css/bootstrap.css">
+</head>
+<!--javascript ka zarya isa day or night mode par bna ha -->
+
+<body onload="timeCheck()" id="theme" class="container">
+	<header class="container-fluid">
+		<title>JS Clock Based Theme Module</title>
+		<h1>
+			JS Game : Guess My Number
+		</h1>
+		<hr>
+	</header>
+	<section>
+		<div class="container-fluid my-5">
+
+			<div class="container-fluid">
+				<center>
+					<div id="inputGroupContainer">
+						<h2 id="query">You Number is less then</h2>
+						<br>
+					
+					 	<div class="d-flex-inline my-4">
+								<button class="btn btn-success mx-5 w-25" onclick="right()">
+									<h4 id="btn-1">Yes</h4>
+								</button>
+								<button class="btn btn-danger mx-5 w-25" onclick="wrong()">
+									<h4 id="btn-2">No</h4>
+								</button>
+							</div>
+							<br>
+							<button class="btn btn-primary my-1" onclick="playAgain()">Play Again</button>
+					</div>
+	
+				</center>
+			</div>
+
+		</div>
+	</section>
+
+</body>
+
+<script>
+
+	var timeFrame = "";
+	var high = "";
+	var low = "";
+	var half = "";
+
+	function timeCheck() {
+		var date = new Date();
+		var time = date.getUTCHours();
+		if (time + 5 >= 24) {   //pakistan is 5 hour next to Universal time 
+			time = time + 5 - 24;
+		}
+		else {
+			time = time + 5;
+		}
+		var newTheme = document.getElementById("theme");
+		var newThemeInputGroupCont = document.getElementById("inputGroupContainer");
+		var newThemeInput = document.getElementById("inputVal");
+
+		if (time >= 18 || time <= 6) {
+			newTheme.classList.add("bg-dark", "text-light", "container");
+			newThemeInputGroupCont.classList.add("bg-grey-dark", "rounded-3", "container-fuid", "input-group-lg", "w-50", "my-4", "px-4", "py-4");
+			timeFrame = "Night"
+			//add classList method ha yah ; it is used when you want to add on more then one class to any element
+			//alert(time);      //testing purpose !!
+		}
+		else {
+			newTheme.classList.add("bg-white", "text-dark", "container");
+			newThemeInputGroupCont.classList.add("bg-light", "rounded-3", "container-fuid", "input-group-lg", "w-50", "my-4", "px-4", "py-4");
+
+			timeFrame = "Morning"
+		}
+
+		dataFetch();
+	}
+
+	function dataFetch() {
+
+		high = parseInt(sessionStorage.getItem("high"));
+		low = parseInt(sessionStorage.getItem("low"));
+
+		//alert(high+low);
+		query();
+
+	}
+
+	function query() {
+
+		half = (high + low) / 2;
+		if ((high + low) % 2 != 0) {
+			half += 0.5;
+		}
+
+		if (half == high) {
+			//	alert("The Number You choosed was "+high);
+
+			document.getElementById("query").innerHTML = "Number You choosed was" + high;
+			document.getElementById("btn-1").innerHTML = "Play Again";
+			document.getElementById("btn-2").innerHTML = "Exit";
+
+			document.getElementById("btn-1").onclick = window.location.replace("index.html");
+			document.getElementById("btn-2").onclick = window.close();
+
+
+		}
+
+		//alert(half);
+		document.getElementById("query").innerHTML = "Your Number is Less then equals to " + half;
+	}
+
+	function right() {
+		high = half;
+		// alert("High "+high+" low "+low+" half "+half);
+		// alert("right function");
+		query();
+	}
+	function wrong() {
+		low = half;
+		query();
+	}
+
+	function questionTime() {
+		window.location.replace("guess.html");
+	}
+
+	function playAgain() {
+		window.location.replace("index.html");
+	}
+</script>
+
+</html>
